@@ -1,22 +1,24 @@
 import MainEntry from "#domains/main/routes/MainEntry.js";
-import { routePath } from "#routes/path.js";
-import { NavLink, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
+
+import Header from "#components/Header";
+import Nav from "#components/Nav";
+
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
   return (
-    <div>
-      <nav style={{ display: "flex", gap: "32px" }}>
-        <NavLink to="/" end>
-          Main
-        </NavLink>
-        <NavLink to={routePath.IIT.absolute} end>
-          IIT
-        </NavLink>
-      </nav>
-      <Routes>
-        <Route path="/" element={<MainEntry />} />
-      </Routes>
-    </div>
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <Header />
+      <Nav />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Routes>
+          <Route path="/" element={<MainEntry />} />
+        </Routes>
+      </Box>
+    </Box>
   );
 }
 
